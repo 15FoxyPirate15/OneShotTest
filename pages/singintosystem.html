@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneShot</title>
+    <link rel="stylesheet" href="\style.css">
+    <link rel="icon" href="../media/512x512.png" type="image/png">
+</head> 
+<body>
+    <header>
+        <div class="auth-container">
+            <div class="tabs">
+                <button data-language="signinbutton" class="tab-button active" data-tab="login">Sign In</button>
+                <button data-language="registerbutton" class="tab-button" data-tab="register">Register</button>
+            </div>
+            <div class="tab-content active" id="login">
+                <form class="auth-form">
+                    <h2 data-language="signintext" style="color: aliceblue;">Sign In</h2>
+                    <label data-language="emailtext" for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                    <label data-language="passwordtext" for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    <button data-language="signintextogo" type="submit" class="auth-button">Sign In</button>
+                </form>
+            </div>
+            <div class="tab-content" id="register">
+                <form class="auth-form">
+                    <h2 data-language="registertext" style="color: aliceblue;">Register</h2>
+                    <label data-language="emailtext" for="register-email">Email:</label>
+                    <input type="email" id="register-email" name="email" required>
+                    <label data-language="passwordtext" for="register-password">Password:</label>
+                    <input type="password" id="register-password" name="password" required>
+                    <label data-language="passwordagaintext" for="register-confirm-password">Confirm Password:</label>
+                    <input type="password" id="register-confirm-password" name="confirm-password" required>
+                    <button data-language="registertextogo" type="submit" class="auth-button">Register</button>
+                </form>
+            </div>
+        </div>
+        <ul>
+            <a href="../index.html" class="home-link"><img src="../media/512x512.png" alt="404"></a>
+            <button style="right: 60px;" id="language-toggle">Switch to Ukrainian</button>
+        </ul>
+    </header>
+    <footer>
+        <p>&copy; 2025 OneShot. All rights reserved.</p>
+        <p>&copy; Concept made by Foxy Pirate (Discord @foxypirate)</p>
+    </footer>
+    <script src="../language.js"></script>
+    <script src="../language-toggle.js"></script>
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

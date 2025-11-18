@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneShot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="media/512x512.png" type="image/png">
+</head> 
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="nav-item dropdown-parent">
+                    <a data-language="resources-href" href="#resources" class="resources-link">Resources</a>
+                    <ul class="dropdown">
+                      <li><a data-language="resources-one" href="pages/ost.html">OST</a></li>
+                      <li><a data-language="resources-two" href="https://oneshot.fandom.com/wiki/OneShot">Wiki</a></li>
+                      <li><a data-language="resources-three" href="https://steamcommunity.com/app/420530">Community</a></li>
+                    </ul>
+                </li>
+                <li><a data-language="about-href" href="pages/about.html" class="about-link">About</a></li>
+                <li class="nav-item dropdown-parent">
+                    <a data-language="play-href" href="#play" class="play-link">Play</a>
+                    <ul class="dropdown">
+                      <li><a data-language="play-one" href="#" id="playOneshot">Play OneShot</a></li>
+                      <li><a data-language="play-two" href="https://store.steampowered.com/app/420530/OneShot/">Steam Page</a></li>
+                    </ul>
+                </li>
+                <li><a data-language="news-href" href="pages/news.html" class="news-link">News</a></li>
+                <button id="language-toggle">Switch to Ukrainian</button>
+                <a data-language="register" id="reg" href="pages/singintosystem.html">Sign Up</a>
+            </ul>
+        </nav>
+        <img src="media/2016_-_OneShot.png" alt="404 Not Found" class="logo">
+        <section id="about">
+            <h2 id="oneshot" data-language="youhave" style="text-align: center; color: aliceblue;">You have only</h2> 
+            <span data-language="oneshot_text"> OneShot</span>
+        </section>
+    </header>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p data-language="warning">Щоб запустити OneShot, потрібен встановлений Steam.<br data-language="warning-two">Продовжити?</p>
+        <div class="modal-buttons">
+          <button id="confirmBtn">Так</button>
+          <button id="cancelBtn">Ні</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 OneShot. All rights reserved.</p>
+        <p>&copy; Concept made by Foxy Pirate // Bohdan (Discord @foxypirate)</p>
+    </footer>
+
+    <script src="language.js"></script>
+    <script src="language-toggle.js"></script>
+
+    <script>
+      const modal = document.getElementById('modal');
+      const playBtn = document.getElementById('playOneshot');
+      const confirmBtn = document.getElementById('confirmBtn');
+      const cancelBtn = document.getElementById('cancelBtn');
+
+      playBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        modal.style.display = 'flex';
+      });
+
+      confirmBtn.addEventListener('click', function() {
+        window.location.href = 'steam://launch/420530/Dialog';
+        modal.style.display = 'none';
+      });
+
+      cancelBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+    </script>
+</body>
+</html>

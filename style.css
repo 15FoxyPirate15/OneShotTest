@@ -1,0 +1,663 @@
+@font-face {
+    font-family: 'Terminus';;
+    src: url(media/Terminus\ \(TTF\)\ Bold\ 700.ttf);
+}
+
+html, body {
+    overflow-x: hidden;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+header.no-bg {
+    background-color: transparent;
+    background-image: none;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('media/OneShot\ 4k.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('media/OneShot.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none; /* Видаляє підкреслення посилань */
+    color: #000; /* Колір тексту (змініть за потреби) */
+    font-weight: bold; /* Робить текст жирним */
+    padding: 20px; /* Внутрішні відступи секції */
+    background-color: #f4f4f400; /* Колір фону секції */
+    margin: 20px; /* Зовнішні відступи секції */
+    border-radius: 8px; /* Закруглення кутів */
+    font-family: 'Terminus', sans-serif;
+    font-size: 16px; /* Розмір шрифту */
+    line-height: 1.5; /* Висота рядка */
+    color: #ffffff; /* Колір тексту */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+    display: flex; /* Використовує flexbox для вирівнювання */
+    justify-content: center; /* Центрує текст по горизонталі */
+}
+
+section {
+    color: #fff;
+    padding: 20px; /* Внутрішні відступи секції */
+    margin: 30px; /* Зовнішні відступи секції */
+    border-radius: 8px; /* Закруглення кутів */
+    background: rgba(255, 255, 255, 0.075); /* Напівпрозорий білий фон */
+    backdrop-filter: blur(10px); /* Ефект розмиття */
+    -webkit-backdrop-filter: blur(10px); /* Для підтримки в Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тінь для об'єму */
+    border: 1px solid rgba(255, 255, 255, 0); /* Напівпрозорий білий бордер */
+    color: #333; /* Колір тексту */
+    font-family: 'Terminus', sans-serif; /* Шрифт */
+    font-size: 16px; /* Розмір шрифту */
+    line-height: 1.5; /* Висота рядка */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+}
+
+h1 {
+    padding: 20px; /* Внутрішні відступи секції */
+    background-color: #f4f4f400; /* Колір фону секції */
+    margin: 20px; /* Зовнішні відступи секції */
+    border-radius: 8px; /* Закруглення кутів */
+    font-family: 'Terminus', sans-serif;
+    font-size: 16px; /* Розмір шрифту */
+    line-height: 1.5; /* Висота рядка */
+    color: #ffffff; /* Колір тексту */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+    display: flex; /* Використовує flexbox для вирівнювання */
+    justify-content: center; /* Центрує текст по горизонталі */
+}
+
+.play-link {
+    padding: 4px 10px;
+    font-size: 1rem; /* Початковий розмір шрифту */
+    font-weight: bold; /* Робить текст жирним */
+    color: #ffffff; /* Колір тексту */
+    text-decoration: none; /* Видаляє підкреслення */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Плавний ефект */
+}
+.play-link:hover {
+    transform: scale(1.2); /* Збільшує елемент на 20% */
+    font-size: 1.2rem; /* Збільшує розмір шрифту */
+    color: #ffa500; /* Змінює колір тексту при наведенні (опціонально) */
+}
+
+.home-link {
+    padding: 4px 10px;
+    position: absolute; /* Абсолютне позиціонування */
+    top: 15px; /* Відступ від верхнього краю */
+    left: 10px; /* Відступ від правого краю */
+    background-color: #fc8b0a00; /* Колір фону кнопки */
+    color: #ffffff; /* Колір тексту кнопки */
+    border: none; /* Без рамки */
+    padding: 10px 20px; /* Внутрішні відступи кнопки */
+    border-radius: 5px; /* Закруглення кутів */
+    cursor: pointer; /* Курсор при наведенні */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавний ефект */
+    text-decoration: none; /* Видаляє підкреслення */
+    max-width: 30px; /* Ширина кнопки */
+    height: 30px; /* Висота кнопки */
+}
+
+.home-link img {
+    width: 50px; /* Забезпечує адаптивність */
+    height: auto; /* Зберігає пропорції зображення */
+}
+
+.home-link:hover {
+    transform: scale(1.2); /* Збільшує елемент на 20% при наведенні */
+}
+
+.news-link {
+    padding: 4px 10px;
+    font-size: 1rem; /* Початковий розмір шрифту */
+    font-weight: bold; /* Робить текст жирним */
+    color: #ffffff; /* Колір тексту */
+    text-decoration: none; /* Видаляє підкреслення */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Плавний ефект */
+}
+.news-link:hover {
+    transform: scale(1.2); /* Збільшує елемент на 20% */
+    font-size: 1.2rem; /* Збільшує розмір шрифту */
+    color: #ffa500; /* Змінює колір тексту при наведенні (опціонально) */
+}
+
+.about-link:hover {
+    transform: scale(1.2); /* Збільшує елемент на 20% */
+    font-size: 1.2rem; /* Збільшує розмір шрифту */
+    color: #ffa500; /* Змінює колір тексту при наведенні (опціонально) */
+}
+
+.resources-link{
+    padding: 4px 10px;
+    font-size: 1rem; /* Початковий розмір шрифту */
+    font-weight: bold; /* Робить текст жирним */
+    color: #ffffff; /* Колір тексту */
+    text-decoration: none; /* Видаляє підкреслення */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Плавний ефект */
+    position: relative; /* Для створення лінії через псевдоелемент */
+}
+
+.resources-link:hover {
+    transform: scale(1.2); /* Збільшує елемент на 20% */
+    font-size: 1.2rem; /* Збільшує розмір шрифту */
+    color: #ffa500; /* Змінює колір тексту при наведенні (опціонально) */
+}
+
+.about-link {
+    padding: 4px 10px;
+    font-size: 1rem; /* Початковий розмір шрифту */
+    font-weight: bold; /* Робить текст жирним */
+    color: #ffffff; /* Колір тексту */
+    text-decoration: none; /* Видаляє підкреслення */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Плавний ефект */
+    position: relative; /* Для створення лінії через псевдоелемент */
+}
+
+footer {
+    background: rgba(255, 255, 255, 0.075); /* Напівпрозорий білий фон */
+    backdrop-filter: blur(10px); /* Ефект розмиття */
+    -webkit-backdrop-filter: blur(10px); /* Для підтримки в Safari */
+    color: #fff; /* Колір тексту футера */
+    text-align: center; /* Вирівнювання тексту по центру */
+    padding: 20px; /* Внутрішні відступи футера */
+    position: relative; /* Відносне позиціонування */
+    width: 100%; /* Займає всю ширину */
+    font-family: 'Terminus', sans-serif; /* Шрифт футера */
+}
+
+footer ul {
+    list-style: none; /* Видаляє маркери списку */
+    padding: 0; /* Видаляє внутрішні відступи */
+    margin: 0; /* Видаляє зовнішні відступи */
+    text-align: center; /* Центрує текст списку */
+}
+
+#language-toggle {
+    padding: 4px 10px;
+    position: absolute; /* Абсолютне позиціонування */
+    top: 15px; /* Відступ від верхнього краю */
+    right: 150px; /* Відступ від правого краю */
+    background-color: #f4f4f400; /* Колір фону кнопки */
+    color: #ffffff; /* Колір тексту кнопки */
+    border: none; /* Без рамки */
+    padding: 10px 20px; /* Внутрішні відступи кнопки */
+    border-radius: 5px; /* Закруглення кутів */
+    cursor: pointer; /* Курсор при наведенні */
+    font-family: 'Terminus', sans-serif; /* Шрифт кнопки */
+    font-size: 16px; /* Розмір шрифту кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавний ефект */
+}
+
+#language-toggle:hover {
+    transform: scale(1.05); /* Збільшує кнопку на 5% при наведенні */
+    color: #ffa500; /* Змінює колір тексту */
+}
+
+#about {
+    background-color: #f4f4f411; /* Колір фону секції */
+    padding: 20px; /* Внутрішні відступи секції */
+    margin: 20px; /* Зовнішні відступи секції */
+    border-radius: 8px; /* Закруглення кутів */
+    font-family: 'Terminus', sans-serif; /* Шрифт */
+    font-size: 16px; /* Розмір шрифту */
+    line-height: 1.5; /* Висота рядка */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+    position: absolute;
+    left: 41%;
+}
+
+#reg {
+    padding: 4px 10px;
+    position: absolute; /* Абсолютне позиціонування */
+    top: 20px; /* Відступ від верхнього краю */
+    right: 20px; /* Відступ від правого краю */
+    background-color: #f4f4f400; /* Колір фону кнопки */
+    color: #ffffff; /* Колір тексту кнопки */
+    border: none; /* Без рамки */
+    padding: 5px 15px; /* Зменшені внутрішні відступи */
+    border-radius: 5px; /* Закруглення кутів */
+    cursor: pointer; /* Курсор при наведенні */
+    font-family: 'Terminus', sans-serif; /* Шрифт кнопки */
+    font-size: 14px; /* Зменшений розмір шрифту */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавний ефект */
+    text-decoration: none; /* Видаляє підкреслення */
+}
+
+#reg:hover {
+    transform: scale(1.05); /* Збільшує кнопку на 5% при наведенні */
+    color: #ffa500; /* Змінює колір тексту */
+}
+
+#reg:active {
+    transform: scale(0.95); /* Зменшує кнопку на 5% при натисканні */
+    color: #ffa500; /* Змінює колір тексту */
+}
+
+#oneshot {
+    white-space: nowrap; /* Забороняє перенесення тексту на новий рядок */
+    text-align: center; /* Центрує текст */
+    color: aliceblue; /* Колір тексту */
+    font-family: 'Terminus', sans-serif; /* Шрифт */
+    font-size: 1.5rem; /* Розмір тексту */
+    display: inline-block;
+    white-space: nowrap; /* Забороняє перенесення тексту на новий рядок */
+}
+
+span {
+    color: orange; /* Колір тексту "OneShot" */
+    font-weight: bold; /* Жирний текст */
+    font-size: 24px;
+}
+
+#info_title {
+    color: #fff; /* Колір тексту */
+    font-family: 'Terminus', sans-serif; /* Шрифт */
+    font-size: 1.5rem; /* Розмір тексту */
+    margin-top: 20px; /* Відступ зверху */
+}
+
+#info_text {
+    font-family: 'Terminus', sans-serif; /* Шрифт тексту */
+    font-size: 1rem; /* Розмір тексту */
+    line-height: 1.6; /* Висота рядка для зручності читання */
+    color: #ffffff; /* Колір тексту */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+    margin: 20px; /* Відступи навколо тексту */
+    padding: 10px 15px; /* Внутрішні відступи */
+    background-color: rgba(0, 0, 0, 0.7); /* Напівпрозорий фон */
+    border-radius: 8px; /* Закруглені кути */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Легка тінь для об'єму */
+}
+
+#date {
+    color: #707070; /* Колір тексту */
+    font-family: 'Terminus', sans-serif; /* Шрифт */
+    font-size: 1rem; /* Розмір тексту */
+    text-align: left; /* Центрує текст */
+    margin-top: 10px; /* Відступ зверху */
+}
+
+#news-content {
+    font-family: 'Terminus', sans-serif; /* Шрифт тексту */
+    font-size: 1rem; /* Розмір тексту */
+    line-height: 1.3; /* Висота рядка для зручності читання */
+    color: #ffffff; /* Колір тексту */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+    margin: 20px; /* Відступи навколо тексту */
+    padding: 10px 15px; /* Внутрішні відступи */
+    background-color: rgba(0, 0, 0, 0.7); /* Напівпрозорий фон */
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#screenshot {
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../media/Wallpaper.mp4') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.dropdown {
+    position: absolute;
+    display: block;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 160px;
+  
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: 
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  
+    z-index: 1000;
+    border-radius: 5px;
+  
+    background: rgba(0, 0, 0, 0.075);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  
+    border: 2px solid rgba(231, 152, 5, 0.466);
+  }
+  
+  
+  .dropdown li a {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .dropdown li a:hover {
+    background: rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 50%;
+    border-radius: 2%;
+    border-color: #ff8c00;
+    stroke-width: 5px;
+    border: 2px solid rgba(231, 152, 5, 0.466);
+  }
+  
+  .dropdown-parent {
+    position: relative;
+  }
+
+
+  .dropdown-parent:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .resources-link:hover + .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.auth-container {
+    max-width: 300px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Terminus', sans-serif;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    font-family:'Terminus', sans-serif;
+}
+
+.tab-button.active {
+    border-color: #ffa500;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form label {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.auth-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.auth-button {
+    font-family:'Terminus', sans-serif;
+    background: #ffa500;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-button:hover {
+    background: #ff8c00;
+}
+
+
+
+
+
+
+
+
+
+
+.player-container {
+    width: 320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .music-player {
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'Terminus', sans-serif;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.041);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.384);
+  }
+  
+  .cover {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .track-info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+  }
+  
+  .track-info p {
+    margin: 0;
+    color: #bbb;
+  }
+  
+  .controls {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    cursor: pointer;
+  }
+  
+  .btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .btn:hover {
+    transform: scale(1.2);
+  }
+  
+  #progress {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+
+
+
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    font-family: "Terminus", sans-serif;
+    font-size: 16px;
+}
+  
+.modal-content {
+    background: rgba(255, 255, 255, 0.041); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 400px;
+    color: white;
+}
+  
+.modal-buttons {
+    margin-top: 20px;
+}
+  
+.modal-buttons button {
+    padding: 10px 20px;
+    margin: 0 8px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.modal-buttons button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+.niko-sleep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; 
+    height: auto; 
+    z-index: 1;
+}

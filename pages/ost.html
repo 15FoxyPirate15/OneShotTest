@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneShot</title>
+    <link rel="stylesheet" href="\style.css">
+    <link rel="icon" href="../media/512x512.png" type="image/png">
+</head> 
+<body>
+    <header class="no-bg">
+        <nav>
+            <ul>
+              <a href="../index.html" class="home-link"><img src="../media/512x512.png" alt="404"></a>
+                <li class="nav-item dropdown-parent">
+                    <a style="font-size: 18px; color: orange;" data-language="resources-href" href="#resources" class="resources-link">Resources</a>
+                    <ul class="dropdown">
+                        <li><a data-language="resources-one" href="../pages/ost.html">OST</a></li>
+                        <li><a data-language="resources-two" href="https://oneshot.fandom.com/wiki/OneShot">Wiki</a></li>
+                        <li><a data-language="resources-three" href="https://steamcommunity.com/app/420530">Community</a></li>
+                    </ul>
+                  </li>
+                <li><a data-language="about-href" href="../pages/about.html" class="about-link">About</a></li>
+                <li class="nav-item dropdown-parent">
+                  <a data-language="play-href" href="#play" class="play-link">Resources</a>
+                  <ul class="dropdown">
+                    <li><a data-language="play-one" href="steam://launch/420530/Dialog">Launch game</a></li>
+                    <li><a data-language="play-two" href="https://store.steampowered.com/app/420530/OneShot/">Steam Page</a></li>
+                  </ul>
+                </li>
+                <!-- <li><a data-language="play-href" href="https://store.steampowered.com/app/420530/OneShot/?curator_clanid=42579597" class="play-link">Play</a></li> -->
+                <li><a data-language="news-href" href="../pages/news.html" class="news-link">News</a></li>
+                <button id="language-toggle">Switch to Ukrainian</button>
+                <a data-language="register" id="reg" href="../pages/singintosystem.html">Sign Up</a>
+                <script></script>
+            </ul>
+        </nav>
+        <img id="cover-gif" src="../media/Niko_sleep_gif.gif" alt="404 Not Found" class="niko-sleep">
+        <div class="player-container">
+            <div class="music-player">
+              <div class="track-info">
+                <h3 id="title">Someplace I Know</h3>
+                <p id="artist">Nightmargin</p>
+              </div>
+              <audio id="audio" src="../media/Audio/SomeplaceIKnow.ogg"></audio>
+              <div class="controls">
+                <button id="prev" class="btn">⏮️</button>
+                <button id="play-pause" class="btn">▶️</button>
+                <button id="next" class="btn">⏭️</button>
+                <div class="volume-container">
+                  <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
+                </div>                    
+              </div>
+              <input type="range" id="progress" value="0" />
+            </div>
+        </div>
+    </header>
+    <footer>
+        <p>&copy; 2025 OneShot. All rights reserved.</p>
+        <p>&copy; Concept made by Foxy Pirate (Discord @foxypirate)</p>
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const audio_check = document.getElementById('audio');
+        const gif = document.getElementById('cover-gif');
+        const title = document.getElementById('title');
+        const artist = document.getElementById('artist');
+        const volumeSlider = document.getElementById('volume');
+        const progress = document.getElementById('progress');
+        const backgroundVideo = document.getElementById('background-video');
+        const playPauseBtn = document.getElementById('play-pause');
+    
+        const tracks = [
+          { name: 'Someplace I Know', artist: 'Nightmargin', src: '../media/Audio/SomeplaceIKnow.ogg' },
+          { name: 'Encounter', artist: 'Nightmargin', src: '../media/Audio/Encounter.ogg' },
+          { name: 'My Burden Is Light', artist: 'Nightmargin', src: '../media/Audio/MyBurdenIsLight.ogg' }
+        ];
+    
+        let currentTrackIndex = 0;
+        let playTimeout;
+        let stopTimeout;
+    
+        // Відновлення гучності з localStorage
+        const savedVolume = localStorage.getItem('audioVolume');
+        if (savedVolume !== null) {
+          audio_check.volume = savedVolume;
+          volumeSlider.value = savedVolume;
+        }
+    
+        volumeSlider.addEventListener('input', () => {
+          audio_check.volume = volumeSlider.value;
+          localStorage.setItem('audioVolume', volumeSlider.value);
+        });
+    
+        function updateTrack(index) {
+          const wasPlaying = !audio_check.paused;
+
+          audio_check.src = tracks[index].src;
+          title.textContent = tracks[index].name;
+          artist.textContent = tracks[index].artist;
+          audio_check.currentTime = 0;
+          progress.value = 0;
+
+          if (wasPlaying) {
+            audio_check.play();
+            playPauseBtn.textContent = '⏸️';
+          } else {
+            playPauseBtn.textContent = '▶️';
+          }
+        }
+    
+        document.getElementById('next').addEventListener('click', () => {
+          currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+          updateTrack(currentTrackIndex);
+        });
+    
+        document.getElementById('prev').addEventListener('click', () => {
+          currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+          updateTrack(currentTrackIndex);
+        });
+    
+        playPauseBtn.addEventListener('click', () => {
+          if (audio_check.paused) {
+            audio_check.play();
+          } else {
+            audio_check.pause();
+          }
+        });
+    
+        audio_check.addEventListener('play', () => {
+          clearTimeout(stopTimeout);
+          gif.src = '../media/Niko_sleep_gif.gif';
+          clearTimeout(playTimeout);
+          playTimeout = setTimeout(() => {
+            gif.src = '../media/Niko_gif.gif';
+          }, 1500);
+    
+          playPauseBtn.textContent = '⏸️';
+          backgroundVideo.play();
+          backgroundVideo.style.opacity = 1;
+        });
+    
+        audio_check.addEventListener('pause', () => {
+          clearTimeout(playTimeout);
+          clearTimeout(stopTimeout);
+          stopTimeout = setTimeout(() => {
+            if (audio_check.paused) {
+              gif.src = '../media/Niko_sleep_gif.gif';
+            }
+          }, 2500);
+    
+          playPauseBtn.textContent = '▶️';
+          backgroundVideo.style.opacity = 0;
+        });
+    
+        audio_check.addEventListener('ended', () => {
+          clearTimeout(playTimeout);
+          clearTimeout(stopTimeout);
+          gif.src = '../media/Niko_sleep_gif.gif';
+          playPauseBtn.textContent = '▶️';
+          backgroundVideo.style.opacity = 0;
+        });
+    
+        audio_check.addEventListener('timeupdate', () => {
+          if (!isNaN(audio_check.duration)) {
+            progress.value = (audio_check.currentTime / audio_check.duration) * 100;
+          }
+        });
+
+        audio_check.addEventListener('play', () => {
+          playPauseBtn.textContent = '⏸️';
+        });
+
+        audio_check.addEventListener('pause', () => {
+          playPauseBtn.textContent = '▶️';
+        });
+
+    
+        progress.addEventListener('input', () => {
+          if (!isNaN(audio_check.duration)) {
+            audio_check.currentTime = (progress.value / 100) * audio_check.duration;
+          }
+        });
+    
+        // Перший трек запускаємо при завантаженні
+        updateTrack(currentTrackIndex);
+      });
+    </script>
+    <script src="../language.js"></script>
+    <script src="../language-toggle.js"></script>
+</body>
+</html>
